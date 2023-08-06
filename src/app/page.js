@@ -14,6 +14,18 @@ export default function HomePage() {
 
   const appTitle = "My Movie Library";
 
+  const movies = [
+    { id: 0, title: "Indiana Jones and the Dial of Destiny", featured: true },
+    { id: 1, title: "Guardians of the Galaxy Vol. 3", featured: false },
+    {
+      id: 2,
+      title: "Mission: Impossible - Dead Reckoning Part One",
+      featured: false,
+    },
+    { id: 3, title: "Spider-Man: Across the Spider-Verse", featured: false },
+    { id: 4, title: "The Super Mario Bros. Movie", featured: false },
+  ];
+
   return (
     <main>
       <h1>
@@ -21,11 +33,11 @@ export default function HomePage() {
       </h1>
       <p>Here is a list of popular movies:</p>
       <ul className="movie-list">
-        <li className="featured">Indiana Jones and the Dial of Destiny</li>
-        <li>Guardians of the Galaxy Vol. 3</li>
-        <li>Mission: Impossible - Dead Reckoning Part One</li>
-        <li>Spider-Man: Across the Spider-Verse</li>
-        <li>The Super Mario Bros. Movie</li>
+        {movies.map((movie) => (
+          <li key={movie.id} className={movie.featured && "featured"}>
+            {movie.title}
+          </li>
+        ))}
       </ul>
       <p>
         {displayEndMessage ? (
