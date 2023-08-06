@@ -1,3 +1,6 @@
+import { MovieList } from "@/components/movie-list";
+import { PeopleList } from "@/components/people-list";
+
 export default function HomePage() {
   // Control whether to display the title or not
   const displayTitle = true;
@@ -26,19 +29,23 @@ export default function HomePage() {
     { id: 4, title: "The Super Mario Bros. Movie", featured: false },
   ];
 
+  const peoples = [
+    { id: 0, name: "Gabriel Guevara" },
+    { id: 1, name: "Gary Coleman" },
+    { id: 2, name: "Angeli Khang" },
+    { id: 3, name: "Katherine LaNasa" },
+    { id: 4, name: "Rebecca Ferguson" },
+  ];
+
   return (
     <main>
       <h1>
         {displayTitle && (upperCaseTitle ? appTitle.toUpperCase() : appTitle)}
       </h1>
       <p>Here is a list of popular movies:</p>
-      <ul className="movie-list">
-        {movies.map((movie) => (
-          <li key={movie.id} className={movie.featured && "featured"}>
-            {movie.title}
-          </li>
-        ))}
-      </ul>
+
+      <MovieList movies={movies} />
+
       <p>
         {displayEndMessage ? (
           <a href={seeMoreDomain}>See more</a>
@@ -46,6 +53,9 @@ export default function HomePage() {
           "Nothing to see here"
         )}
       </p>
+
+      <p>Here is a list of people:</p>
+      <PeopleList peoples={peoples} />
     </main>
   );
 }
