@@ -4,7 +4,7 @@ export function PeopleList({ peoples }) {
   return (
     <ul>
       {peoples.map((people) => (
-        <PeopleListItem people={people} />
+        <PeopleListItem key={people.id} people={people} />
       ))}
     </ul>
   );

@@ -4,7 +4,7 @@ export function MovieList({ movies }) {
   return (
     <ul className="movie-list">
       {movies.map((movie) => (
-        <MovieListItem movie={movie} />
+        <MovieListItem key={movie.id} movie={movie} />
       ))}
     </ul>
   );
